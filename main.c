@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <unistd.h>
 
+#define ITER 40
+
 enum state {ALL_RED, NS_GREEN, NS_AMBER, EW_GREEN, EW_AMBER};
 
 void step_sm (enum state* CS, enum state* PS)
@@ -58,7 +60,7 @@ int main (void)
 
 	enum state CS = ALL_RED, PS = EW_AMBER;
 
-	for (int i=0; i<30;i++)
+	for (int i=0; i<ITER; i++)
 	{
 		step_sm(&CS, &PS);
 	}	
